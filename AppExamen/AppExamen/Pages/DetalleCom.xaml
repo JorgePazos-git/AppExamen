@@ -87,10 +87,10 @@
                     </Picker.ItemsSource>
                 </Picker>
 
-                <Label Grid.Row="8" Grid.Column="0" Text="Deportistas:" Style="{StaticResource DataLabelStyle}" />
-                <Picker Grid.Row="8" Grid.Column="1" x:Name="pickerDetalleCom" Style="{StaticResource DataValueLabelStyle}"/>
-                <Label Grid.Row="9" Grid.Column="0" Text="Puntaje:" Style="{StaticResource DataLabelStyle}" />
-                    <Entry x:Name="txtPuntaje" Text="" Grid.Row="9" Grid.Column="1"  Style="{StaticResource DataValueLabelStyle}" IsVisible="{Binding IspuntajeButtonVisible}"/>
+                    <Label Grid.Row="8" Grid.Column="0" Text="Deportistas:" Style="{StaticResource DataLabelStyle}" IsVisible="{Binding IslabelDepVisible}"/>
+                    <Picker Grid.Row="8" Grid.Column="1" x:Name="pickerDetalleCom" Style="{StaticResource DataValueLabelStyle}" IsVisible="{Binding IspickerDetVisible}"/>
+                    <Label Grid.Row="9" Grid.Column="0" Text="Puntaje:" Style="{StaticResource DataLabelStyle}" IsVisible="{Binding IsLabelPuntVisible}"/>
+                <Entry x:Name="txtPuntaje" Text="" Grid.Row="9" Grid.Column="1"  Style="{StaticResource DataValueLabelStyle}" IsVisible="{Binding IspuntajeButtonVisible}"/>
 
             </Grid>
                 <Button Text="ADD DETALLE" Clicked="ADDdetalle_Clicked" Style="{StaticResource DataLabelStyle}" IsVisible="{Binding IsAddDetButtonVisible}"/>

@@ -27,6 +27,11 @@ namespace AppExamen.Pages
         public bool IspuntajeButtonVisible { get; set; }
         public bool IsAddDetButtonVisible { get; set; }
 
+        public bool IsLabelPuntVisible{ get; set; }
+
+        public bool IspickerDetVisible{ get; set; }
+        public bool IslabelDepVisible{ get; set; }
+
         public DetalleCom()
         {
             InitializeComponent();
@@ -35,6 +40,9 @@ namespace AppExamen.Pages
             IsAddButtonVisible = true;
             IsAddDetButtonVisible = true;
             IspuntajeButtonVisible = true;
+            IslabelDepVisible = true;
+            IspickerDetVisible = true;
+            IsLabelPuntVisible = true;
 
             // Establecer el contexto de enlace de datos
             BindingContext = this;
@@ -66,6 +74,9 @@ namespace AppExamen.Pages
             IsAddButtonVisible = false;
             IsAddDetButtonVisible = false;
             IspuntajeButtonVisible = false;
+            IslabelDepVisible = false;
+            IspickerDetVisible = false;
+            IsLabelPuntVisible = false;
 
             // Establecer el contexto de enlace de datos
             BindingContext = this;
