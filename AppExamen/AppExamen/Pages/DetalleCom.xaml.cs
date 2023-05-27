@@ -114,6 +114,7 @@ namespace AppExamen.Pages
                 pickerGeneroCom.SelectedIndexChanged += pickerSelectedIndexChanged;
 
                 var lista2 = ListaDeportistasDet(competencia.IdCom);
+
                 deportistas = new ObservableCollection<DeportistaPuntaje>(transformar(lista2, int.Parse(txtIdCom.Text)));
                 deportistasListView.ItemsSource = deportistas;
             }
@@ -130,11 +131,10 @@ namespace AppExamen.Pages
         {
             var lista2 = new List<DeportistaPuntaje>();
 
-            DeportistaPuntaje deportistaPuntaje = new DeportistaPuntaje();
-
-
+          
             foreach (Deportista deportista in lista)
             {
+                DeportistaPuntaje deportistaPuntaje = new DeportistaPuntaje();
                 deportistaPuntaje.Deportista = deportista;
                 deportistaPuntaje.Puntaje = puntaje(idCom, deportista.IdDep);
                 // Agregar el deportista a la lista de deportistas seleccionados
