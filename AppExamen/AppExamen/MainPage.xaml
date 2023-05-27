@@ -1,0 +1,48 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppExamen.MainPage"
+             x:Name="mainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Barra de encabezado con el icono de menú -->
+        <Frame Grid.Row="0" BackgroundColor="Black" Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="☰" FontSize="24" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="White">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BindingContext.ToggleMenuCommand, Source={x:Reference mainPage}}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label Text="APP EXAMEN BIMESTRE 1" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- Contenido principal -->
+        <StackLayout Grid.Row="1" BackgroundColor="White">
+            <!-- Contenido principal de la página -->
+            <Label Text="Desarrollado por: Jorge Ramiro Pazos Morillo" FontSize="Subtitle" Padding="30,10,30,10"/>
+            <Image Source="Source/image2.jpg"></Image>
+        </StackLayout>
+
+        <!-- Menú desplegable -->
+        <Frame x:Name="menuFrame" Grid.Row="1" BackgroundColor="LightGray" Padding="10" IsVisible="{Binding IsMenuVisible}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BindingContext.ToggleMenuCommand, Source={x:Reference Name=mainPage}}" />
+            </Frame.GestureRecognizers>
+            <ListView ItemsSource="{Binding MenuOptions}" ItemSelected="OnMenuItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Title}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+
+    </Grid>
+
+</ContentPage>

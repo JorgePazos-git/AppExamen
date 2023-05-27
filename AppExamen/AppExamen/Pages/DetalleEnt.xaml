@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppExamen.Pages.DetalleEnt">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DataLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#333333" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="DataValueLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#666666" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Entrenador" FontSize="Title" HorizontalOptions="Center"  FontAttributes="Bold"/>
+
+            <Grid ColumnSpacing="10" RowSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="ID:" Style="{StaticResource DataLabelStyle}" />
+                <Label Grid.Row="0" Grid.Column="1" Text="" x:Name="txtIdEnt" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Nombres:" Style="{StaticResource DataLabelStyle}" />
+                <Entry Grid.Row="1" Grid.Column="1" Text="" x:Name="txtNombresEnt" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Apellidos:" Style="{StaticResource DataLabelStyle}" />
+                <Entry Grid.Row="2" Grid.Column="1" Text="" x:Name="txtApellidosEnt" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Cédula:" Style="{StaticResource DataLabelStyle}" />
+                <Entry Grid.Row="3" Grid.Column="1" Text="" x:Name="txtCedulaEnt" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Activo:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="4" Grid.Column="1" x:Name="pickerActivoEnt" Style="{StaticResource DataValueLabelStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Activo</x:String>
+                            <x:String>Inactivo</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Grid.Row="5" Grid.Column="0" Text="Provincia:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="5" Grid.Column="1" x:Name="pickerProvinciaEnt" Style="{StaticResource DataValueLabelStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Azuay</x:String>
+                            <x:String>Bolivar</x:String>
+                            <x:String>Cañar</x:String>
+                            <x:String>Carchi</x:String>
+                            <x:String>Chimborazo</x:String>
+                            <x:String>Cotopaxi</x:String>
+                            <x:String>El Oro</x:String>
+                            <x:String>Esmeraldas</x:String>
+                            <x:String>Galápagos</x:String>
+                            <x:String>Guayas</x:String>
+                            <x:String>Imbabura</x:String>
+                            <x:String>Loja</x:String>
+                            <x:String>Los Ríos</x:String>
+                            <x:String>Manabí</x:String>
+                            <x:String>Morona Santiago</x:String>
+                            <x:String>Napo</x:String>
+                            <x:String>Sucumbíos</x:String>
+                            <x:String>Pastaza</x:String>
+                            <x:String>Pinchincha</x:String>
+                            <x:String>Santa Elena</x:String>
+                            <x:String>Santo Domingo</x:String>
+                            <x:String>Francisco De Orellana</x:String>
+                            <x:String>Tungurahua</x:String>
+                            <x:String>Zamora Chinchipe</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Grid.Row="6" Grid.Column="0" Text="Deportistas a cargo:" Style="{StaticResource DataLabelStyle}" />
+                <Label Grid.Row="6" Grid.Column="1" Text="" x:Name="txtDepEnt" Style="{StaticResource DataValueLabelStyle}" />
+            </Grid>
+            <Button Text="ADD" FontAttributes="Bold" HorizontalOptions="Center" Clicked="OnAgregarClicked" BackgroundColor="DarkSeaGreen" IsVisible="{Binding IsAddButtonVisible}"/>
+            <Button Text="UPDATE" FontAttributes="Bold" HorizontalOptions="Center" Clicked="OnActualizarClicked" BackgroundColor="DarkOrange" IsVisible="{Binding IsUpdateButtonVisible}" />
+            <Button Text="DISABLE" FontAttributes="Bold" HorizontalOptions="Center" Clicked="OnEliminarClicked" BackgroundColor="DarkRed" IsVisible="{Binding IsDeleteButtonVisible}" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppExamen.Pages.DetalleCom">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DataLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#333333" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="DataValueLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#666666" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20">
+            <Label Text="Competencia" FontSize="Title" HorizontalOptions="Center"  FontAttributes="Bold"/>
+
+            <Grid ColumnSpacing="10" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="ID:" Style="{StaticResource DataLabelStyle}" />
+                <Label Grid.Row="0" Grid.Column="1" Text="" x:Name="txtIdCom" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Nombre:" Style="{StaticResource DataLabelStyle}" />
+                <Entry Grid.Row="1" Grid.Column="1" Text="" x:Name="txtNombreCom" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Fecha de inicio:" Style="{StaticResource DataLabelStyle}" />
+                <DatePicker Grid.Row="2" Grid.Column="1" x:Name="txtFechaInicioCom" Date="{Binding FechaInicioCom}" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Fecha de finalización:" Style="{StaticResource DataLabelStyle}" />
+                <DatePicker Grid.Row="3" Grid.Column="1" x:Name="txtFechaFinCom" Date="{Binding FechaFinCom}" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Activo:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="4" Grid.Column="1" x:Name="pickerActivoCom" Style="{StaticResource DataValueLabelStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Activo</x:String>
+                            <x:String>Inactivo</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Grid.Row="5" Grid.Column="0" Text="Sede:" Style="{StaticResource DataLabelStyle}" />
+                <Entry Grid.Row="5" Grid.Column="1" Text="" x:Name="txtSedeCom" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="6" Grid.Column="0" Text="Género:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="6" Grid.Column="1" x:Name="pickerGeneroCom" Style="{StaticResource DataValueLabelStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Masculino</x:String>
+                            <x:String>Femenino</x:String>
+                            <x:String>Otro</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="7" Grid.Column="0" Text="Categoría:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="7" Grid.Column="1" x:Name="pickerCategoriaCom" Style="{StaticResource DataValueLabelStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Infantil</x:String>
+                            <x:String>Under16</x:String>
+                            <x:String>Under18</x:String>
+                            <x:String>Under20</x:String>
+                            <x:String>Over20</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="8" Grid.Column="0" Text="Deportistas:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="8" Grid.Column="1" x:Name="pickerDetalleCom" Style="{StaticResource DataValueLabelStyle}"/>
+                <Label Grid.Row="9" Grid.Column="0" Text="Puntaje:" Style="{StaticResource DataLabelStyle}" />
+                    <Entry x:Name="txtPuntaje" Text="" Grid.Row="9" Grid.Column="1"  Style="{StaticResource DataValueLabelStyle}" IsVisible="{Binding IspuntajeButtonVisible}"/>
+
+            </Grid>
+                <Button Text="ADD DETALLE" Clicked="ADDdetalle_Clicked" Style="{StaticResource DataLabelStyle}" IsVisible="{Binding IsAddDetButtonVisible}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Button Grid.Column="0" Text="GUARDAR" FontAttributes="Bold" HorizontalOptions="Center" Clicked="OnAgregarClicked" BackgroundColor="DarkSeaGreen" IsVisible="{Binding IsAddButtonVisible}" />
+                    <Button Grid.Column="1" Text="UPDATE" FontAttributes="Bold" HorizontalOptions="Center" Clicked="OnActualizarClicked" BackgroundColor="DarkOrange" IsVisible="{Binding IsUpdateButtonVisible}" />
+                    <Button Grid.Column="2" Text="DISABLE" FontAttributes="Bold" HorizontalOptions="Center" Clicked="OnEliminarClicked" BackgroundColor="DarkRed" IsVisible="{Binding IsDeleteButtonVisible}" />
+                </Grid>
+                <ListView x:Name="deportistasListView">
+                    <!-- Define la apariencia de cada elemento de la lista -->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" FontAttributes="Bold">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}{0} {1}">
+                                                <Binding Path="Deportista.NombresDep" />
+                                                <Binding Path="Deportista.ApellidosDep" />
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    <Label Text="{Binding Puntaje}" Grid.Column="1" Style="{StaticResource DataValueLabelStyle}"/>
+                                    <Button Grid.Column="2" Text="Deshacer" Style="{StaticResource DataLabelStyle}" Clicked="DeshacerButton_Clicked" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

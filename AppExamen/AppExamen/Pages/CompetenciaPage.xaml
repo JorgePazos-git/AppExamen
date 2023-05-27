@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppExamen.Pages.CompetenciaPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CompetenciaItemStyle" TargetType="Frame">
+                <Setter Property="HeightRequest" Value="80" />
+                <Setter Property="Padding" Value="8" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="BackgroundColor" Value="LightGray" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Text="ADD" FontAttributes="Bold" Clicked="AgregarButton_Clicked" VerticalOptions="Start" HorizontalOptions="Center" BackgroundColor="DarkSeaGreen" />
+
+        <ListView x:Name="competenciasListView"  Grid.Row="1" VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Frame Style="{StaticResource CompetenciaItemStyle}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" FontAttributes="Bold" Text="{Binding NombreCom, StringFormat='{0}'}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Label_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Grid.Column="1" Text="{Binding CategoriaCom, StringFormat='Categoría: {0}'}" HorizontalTextAlignment="End" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

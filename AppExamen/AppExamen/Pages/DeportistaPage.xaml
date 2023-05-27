@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppExamen.Pages.DeportistaPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DeportistaItemStyle" TargetType="Frame">
+                <Setter Property="HeightRequest" Value="80" />
+                <Setter Property="Padding" Value="8" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="BackgroundColor" Value="LightGray" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Text="ADD" FontAttributes="Bold" Clicked="AgregarButton_Clicked" VerticalOptions="Start" HorizontalOptions="Center" BackgroundColor="DarkSeaGreen" />
+
+
+        <ListView x:Name="deportistasListView" Grid.Row="1" VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Frame Style="{StaticResource DeportistaItemStyle}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" FontAttributes="Bold">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}{0} {1}">
+                                                <Binding Path="NombresDep" />
+                                                <Binding Path="ApellidosDep" />
+                                            </MultiBinding>
+                                        </Label.Text>
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Label_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Grid.Column="1" Text="{Binding CedulaDep, StringFormat='Cédula: {0}'}" HorizontalTextAlignment="End" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

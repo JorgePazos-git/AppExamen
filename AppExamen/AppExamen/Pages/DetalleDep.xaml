@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppExamen.Pages.DetalleDep">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DataLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#333333" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="DataValueLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#666666" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Deportista" FontSize="Title" HorizontalOptions="Center"  FontAttributes="Bold"/>
+
+            <Grid ColumnSpacing="10" RowSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="ID:" Style="{StaticResource DataLabelStyle}" />
+                <Label Grid.Row="0" Grid.Column="1" Text="" x:Name="txtIdDep" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Nombres:" Style="{StaticResource DataLabelStyle}" />
+                <Entry Grid.Row="1" Grid.Column="1" Text="" x:Name="txtNombresDep" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Apellidos:" Style="{StaticResource DataLabelStyle}" />
+                <Entry Grid.Row="2" Grid.Column="1" Text="" x:Name="txtApellidosDep" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Cédula:" Style="{StaticResource DataLabelStyle}" />
+                <Entry Grid.Row="3" Grid.Column="1" Text="" x:Name="txtCedulaDep" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Activo:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="4" Grid.Column="1" x:Name="pickerActivoDep" Style="{StaticResource DataValueLabelStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Activo</x:String>
+                            <x:String>Inactivo</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Grid.Row="5" Grid.Column="0" Text="Club:" Style="{StaticResource DataLabelStyle}" />
+                <Entry Grid.Row="5" Grid.Column="1" Text="" x:Name="txtClubDep" Style="{StaticResource DataValueLabelStyle}" />
+
+                <Label Grid.Row="6" Grid.Column="0" Text="Género:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="6" Grid.Column="1" x:Name="pickerGeneroDep" Style="{StaticResource DataValueLabelStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Masculino</x:String>
+                            <x:String>Femenino</x:String>
+                            <x:String>Otro</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="7" Grid.Column="0" Text="Categoría:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="7" Grid.Column="1" x:Name="pickerCategoriaDep" Style="{StaticResource DataValueLabelStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Infantil</x:String>
+                            <x:String>Under16</x:String>
+                            <x:String>Under18</x:String>
+                            <x:String>Under20</x:String>
+                            <x:String>Over20</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                
+                <Label Grid.Row="8" Grid.Column="0" Text="Provincia:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="8" Grid.Column="1" x:Name="pickerProvinciaDep" Style="{StaticResource DataValueLabelStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Azuay</x:String>
+                            <x:String>Bolivar</x:String>
+                            <x:String>Cañar</x:String>
+                            <x:String>Carchi</x:String>
+                            <x:String>Chimborazo</x:String>
+                            <x:String>Cotopaxi</x:String>
+                            <x:String>El Oro</x:String>
+                            <x:String>Esmeraldas</x:String>
+                            <x:String>Galápagos</x:String>
+                            <x:String>Guayas</x:String>
+                            <x:String>Imbabura</x:String>
+                            <x:String>Loja</x:String>
+                            <x:String>Los Ríos</x:String>
+                            <x:String>Manabí</x:String>
+                            <x:String>Morona Santiago</x:String>
+                            <x:String>Napo</x:String>
+                            <x:String>Sucumbíos</x:String>
+                            <x:String>Pastaza</x:String>
+                            <x:String>Pinchincha</x:String>
+                            <x:String>Santa Elena</x:String>
+                            <x:String>Santo Domingo</x:String>
+                            <x:String>Francisco De Orellana</x:String>
+                            <x:String>Tungurahua</x:String>
+                            <x:String>Zamora Chinchipe</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Grid.Row="9" Grid.Column="0" Text="Entrenador:" Style="{StaticResource DataLabelStyle}" />
+                <Picker Grid.Row="9" Grid.Column="1" x:Name="pickerEntrenadorDep" Style="{StaticResource DataValueLabelStyle}" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Text="ADD" FontAttributes="Bold" HorizontalOptions="Center" Clicked="OnAgregarClicked" BackgroundColor="DarkSeaGreen" IsVisible="{Binding IsAddButtonVisible}" />
+                <Button Grid.Column="1" Text="UPDATE" FontAttributes="Bold" HorizontalOptions="Center" Clicked="OnActualizarClicked" BackgroundColor="DarkOrange" IsVisible="{Binding IsUpdateButtonVisible}" />
+                <Button Grid.Column="2" Text="DELETE" FontAttributes="Bold" HorizontalOptions="Center" Clicked="OnEliminarClicked" BackgroundColor="DarkRed" IsVisible="{Binding IsDeleteButtonVisible}" />
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
